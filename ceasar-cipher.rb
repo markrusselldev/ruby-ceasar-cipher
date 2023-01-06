@@ -6,7 +6,7 @@ def ceasar_cipher(string, step)
     if char.between?(32, 64) || char.between?(91, 96) || char > 122 then
       charArray.push(char)
     else
-    # if stepping lands on a letter, step, wrap if not
+    # if stepping lands on a letter, step, if not, wrap
     charArray.push(
       ((char + step).between?(65, 90) || (char + step).between?(97, 122))?
       (char + step):
@@ -14,7 +14,7 @@ def ceasar_cipher(string, step)
     )
     end
   end
-  # turn ASCII back into a string of letters
+  # turn ASCII back into a string of text
   charArray.pack("C*")
 end
 puts ceasar_cipher("What a string!", 5)
