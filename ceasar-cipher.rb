@@ -6,8 +6,12 @@ def ceasar_cipher(string, step)
     if char.between?(32, 64) || char.between?(91, 96) || char > 122 then
       charArray.push(char)
     else
-    # step normally if stepping lands on a letter, wrap if not
-    charArray.push(((char + step).between?(65, 90) || (char + step).between?(97, 122))?(char + step):(char + step - 26))
+    # if stepping lands on a letter, step, wrap if not
+    charArray.push(
+      ((char + step).between?(65, 90) || (char + step).between?(97, 122))?
+      (char + step):
+      (char + step - 26)
+    )
     end
   end
   # turn ASCII back into a string of letters
